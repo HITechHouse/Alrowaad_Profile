@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome setup placeholder for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Resources -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -25,8 +30,11 @@
     <header class="header">
         <div class="container nav-container">
             <div class="logo">
-                <h1>Al-Rowaad</h1>
-                <p>General Trading</p>
+                <img src="assets/images/logo.png" alt="Al-Rowaad Logo" class="nav-logo">
+                <div class="logo-text">
+                    <h1>Al-Rowaad</h1>
+                    <p>General Trading</p>
+                </div>
             </div>
             <nav class="nav-links">
                 <a href="#about">About Us</a>
@@ -60,19 +68,19 @@
             <div class="stories-container">
                 <div class="story-thumb" onclick="openStory(0)">
                     <div class="story-ring">
-                        <img src="assets/images/story_canned_foods.png" alt="Canned Foods">
+                        <img src="assets/images/Untitled.jpg" alt="Canned Foods">
                     </div>
                     <span>Canned Foods</span>
                 </div>
                 <div class="story-thumb" onclick="openStory(1)">
                     <div class="story-ring">
-                        <img src="assets/images/story_oriental_sweets.png" alt="Oriental Sweets">
+                        <img src="assets/images/Untitled1.jpg" alt="Oriental Sweets">
                     </div>
                     <span>Oriental Sweets</span>
                 </div>
                 <div class="story-thumb" onclick="openStory(2)">
                     <div class="story-ring">
-                        <img src="assets/images/story_biscuits_dry.png" alt="Dry Foods">
+                        <img src="assets/images/Untitled2.jpg" alt="Dry Foods">
                     </div>
                     <span>Dry Foods</span>
                 </div>
@@ -98,7 +106,8 @@
                     <h3><i class="fas fa-building text-gold"></i> Our Subsidiary</h3>
                     <p>Al-Rowaad operates its extensive market reach through our specialized distribution arm:
                         <strong>Durrat Al-Sham Distribution Company</strong>. They handle direct distribution to retail
-                        stores, hypermarkets, and wholesalers across all Omani governorates.</p>
+                        stores, hypermarkets, and wholesalers across all Omani governorates.
+                    </p>
                 </div>
             </div>
             <div class="about-image slide-in-right">
@@ -106,6 +115,100 @@
                 <div class="experience-badge">
                     <span class="years">Premium</span>
                     <span class="label">Quality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Story Map Section -->
+    <section id="story-map">
+        <!-- Horizontal Gallery Navigation -->
+        <div class="story-gallery-nav">
+            <div class="gallery-track">
+                <div class="gallery-item active" onclick="scrollToStep(0)">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/oman_business.png" alt="Muscat HQ">
+                        <div class="gallery-badge">1</div>
+                    </div>
+                    <div class="gallery-title">Muscat HQ</div>
+                </div>
+                <div class="gallery-item" onclick="scrollToStep(1)">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/product_ahlam_1.png" alt="Syrian Heritage">
+                        <div class="gallery-badge">2</div>
+                    </div>
+                    <div class="gallery-title">Syrian Flavors</div>
+                </div>
+                <div class="gallery-item" onclick="scrollToStep(2)">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/product_ahlam_2.png" alt="Turkish Excellence">
+                        <div class="gallery-badge">3</div>
+                    </div>
+                    <div class="gallery-title">Fine Sweets</div>
+                </div>
+                <div class="gallery-item" onclick="scrollToStep(3)">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/product_hisham_1.png" alt="Egyptian Quality">
+                        <div class="gallery-badge">4</div>
+                    </div>
+                    <div class="gallery-title">Pure Harvest</div>
+                </div>
+                <div class="gallery-item" onclick="scrollToStep(4)">
+                    <div class="gallery-thumb">
+                        <img src="assets/images/logistics_fleet.png" alt="Nationwide Network">
+                        <div class="gallery-badge">5</div>
+                    </div>
+                    <div class="gallery-title">Distribution</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-map-container">
+            <!-- Left: Scrolling Narrative Content -->
+            <div class="story-scroll-content">
+                <div class="story-step active" id="step-0" data-lat="23.5859" data-lng="58.4059" data-zoom="12"
+                    data-media="assets/images/oman_business.png">
+                    <span class="step-label">Location 01</span>
+                    <h2>Muscat Headquarters</h2>
+                    <p>Based in the heart of Muscat, Al-Rowaad General Trading serves as the central hub for premium
+                        food importation in the Sultanate.</p>
+                </div>
+                <div class="story-step" id="step-1" data-lat="34.8021" data-lng="38.9968" data-zoom="6"
+                    data-media="assets/images/Untitled.jpg">
+                    <span class="step-label">Origin 02</span>
+                    <h2>Syrian Heritage</h2>
+                    <p>We bring the authentic flavors of Syria to the Omani dinner table, specializing in premium canned
+                        goods and traditional olive oils.</p>
+                </div>
+                <div class="story-step" id="step-2" data-lat="38.9637" data-lng="35.2433" data-zoom="5"
+                    data-media="assets/images/Untitled1.jpg">
+                    <span class="step-label">Origin 03</span>
+                    <h2>Turkish Excellence</h2>
+                    <p>Turkish oriental sweets and high-quality ingredients form a cornerstone of our premium selection,
+                        meeting the highest standards of taste.</p>
+                </div>
+                <div class="story-step" id="step-3" data-lat="26.8206" data-lng="30.8025" data-zoom="6"
+                    data-media="assets/images/Untitled2.jpg">
+                    <span class="step-label">Origin 04</span>
+                    <h2>Egyptian Quality</h2>
+                    <p>Our dry foods and pantry essentials are carefully sourced from Egypt, ensuring diverse and
+                        reliable products for various retailers.</p>
+                </div>
+                <div class="story-step" id="step-4" data-lat="23.5859" data-lng="58.4059" data-zoom="8"
+                    data-media="assets/images/logistics_fleet.png">
+                    <span class="step-label">Logistics 05</span>
+                    <h2>Nationwide Distribution</h2>
+                    <p>Through Durrat Al-Sham, we maintain a vast distribution network spanning Muscat, Sohar, and
+                        Salalah with our modern fleet.</p>
+                </div>
+            </div>
+
+            <!-- Right: Sticky Map & Visuals -->
+            <div class="story-visuals">
+                <div id="map-canvas"></div>
+                <div class="media-overlay">
+                    <img src="assets/images/oman_business.png" id="step-media" alt="Story Media">
+                    <div class="media-caption">Exploring our Journey</div>
                 </div>
             </div>
         </div>
@@ -184,6 +287,69 @@
         </div>
     </section>
 
+    <!-- Product Spotlight Section (Interactive 3D) -->
+    <section class="section product-spotlight-section">
+        <div class="container text-center mb-5">
+            <span class="tagline">Interactive Experience</span>
+            <h2>Product Explorer</h2>
+            <div class="divider center"></div>
+            <p>Hover over the premium spread to explore our collection. Move your mouse to see the details shine.</p>
+        </div>
+        <div class="spotlight-container">
+            <div class="spotlight-card" id="tilt-card">
+                <div class="spotlight-slides">
+                    <div class="spotlight-slide active">
+                        <img src="assets/images/product_ahlam_1.png" alt="Al-Ahlam Olives" class="spotlight-img">
+                        <div class="slide-caption">Al-Ahlam Premium Olives</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_ahlam_2.png" alt="Al-Ahlam Sweets" class="spotlight-img">
+                        <div class="slide-caption">Al-Ahlam Oriental Sweets</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_ahlam_3.png" alt="Al-Ahlam Pickles" class="spotlight-img">
+                        <div class="slide-caption">Al-Ahlam Assorted Pickles</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_ahlam_4.png" alt="Al-Ahlam Halva" class="spotlight-img">
+                        <div class="slide-caption">Al-Ahlam Premium Halva</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_hisham_1.png" alt="Sidi Hisham Oil" class="spotlight-img">
+                        <div class="slide-caption">Sidi Hisham Olive Oil</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_hisham_2.png" alt="Sidi Hisham Zaatar" class="spotlight-img">
+                        <div class="slide-caption">Sidi Hisham Wild Thyme</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_hisham_3.png" alt="Sidi Hisham Honey" class="spotlight-img">
+                        <div class="slide-caption">Sidi Hisham Pure Honey</div>
+                    </div>
+                    <div class="spotlight-slide">
+                        <img src="assets/images/product_hisham_4.png" alt="Sidi Hisham Spices" class="spotlight-img">
+                        <div class="slide-caption">Sidi Hisham Traditional Spices</div>
+                    </div>
+                </div>
+                <!-- Navigation Dots -->
+                <div class="spotlight-dots">
+                    <div class="dot active" onclick="goToSpotlightSlide(0)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(1)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(2)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(3)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(4)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(5)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(6)"></div>
+                    <div class="dot" onclick="goToSpotlightSlide(7)"></div>
+                </div>
+                <div class="spotlight-overlay"></div>
+                <div class="hotspot" style="top: 40%; left: 30%;" data-tip="Authentic Selection"></div>
+                <div class="hotspot" style="top: 60%; left: 50%;" data-tip="Premium Quality"></div>
+                <div class="hotspot" style="top: 30%; left: 70%;" data-tip="Global Standards"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Products & Network Section -->
     <section class="section products-network" id="products">
         <div class="container">
@@ -243,8 +409,11 @@
     <footer class="footer">
         <div class="container text-center">
 
-            <h2 class="footer-logo">Al-Rowaad</h2>
-            <p>General Trading</p>
+            <div class="footer-brand">
+                <img src="assets/images/logo.png" alt="Al-Rowaad Logo" class="footer-logo-img">
+                <h2 class="footer-logo">Al-Rowaad</h2>
+                <p>General Trading</p>
+            </div>
             <div class="footer-social mt-2">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -272,9 +441,9 @@
     <script>
         // Story Feature Logic
         const stories = [
-            { img: 'assets/images/story_canned_foods.png', title: 'Premium Canned & Olive Oil' },
-            { img: 'assets/images/story_oriental_sweets.png', title: 'Luxurious Oriental Sweets' },
-            { img: 'assets/images/story_biscuits_dry.png', title: 'High-Quality Dry Foods' }
+            { img: 'assets/images/Untitled.jpg', title: 'Premium Canned & Olive Oil' },
+            { img: 'assets/images/Untitled1.jpg', title: 'Luxurious Oriental Sweets' },
+            { img: 'assets/images/Untitled2.jpg', title: 'High-Quality Dry Foods' }
         ];
 
         let currentStoryIndex = 0;
@@ -387,6 +556,152 @@
                     }
                 });
             });
+
+            // Story Map Initialization
+            const map = L.map('map-canvas', {
+                scrollWheelZoom: false,
+                zoomControl: false,
+                attributionControl: false
+            }).setView([23.5859, 58.4059], 6);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20
+            }).addTo(map);
+
+            const steps = document.querySelectorAll('.story-step');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const mediaOverlay = document.querySelector('.media-overlay');
+            const stepMedia = document.getElementById('step-media');
+
+            // Scroll to specific step
+            window.scrollToStep = function (index) {
+                const target = document.getElementById(`step-${index}`);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            const storyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const step = entry.target;
+                        const index = Array.from(steps).indexOf(step);
+                        const lat = parseFloat(step.dataset.lat);
+                        const lng = parseFloat(step.dataset.lng);
+                        const zoom = parseInt(step.dataset.zoom);
+                        const media = step.dataset.media;
+
+                        // Update Step UI
+                        steps.forEach(s => s.classList.remove('active'));
+                        step.classList.add('active');
+
+                        // Update Gallery UI
+                        galleryItems.forEach(item => item.classList.remove('active'));
+                        if (galleryItems[index]) {
+                            galleryItems[index].classList.add('active');
+                            // Scroll gallery into view
+                            galleryItems[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        }
+
+                        // Pan and Zoom Map
+                        map.flyTo([lat, lng], zoom, {
+                            duration: 1.5,
+                            easeLinearity: 0.25
+                        });
+
+                        // Add temporary marker
+                        L.circleMarker([lat, lng], {
+                            radius: 10,
+                            fillColor: "#D4AF37",
+                            color: "#fff",
+                            weight: 2,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        }).addTo(map).fadeOut = true;
+
+                        // Update Media
+                        mediaOverlay.classList.remove('visible');
+                        setTimeout(() => {
+                            stepMedia.src = media;
+                            mediaOverlay.classList.add('visible');
+                        }, 300);
+                    }
+                });
+            }, {
+                threshold: 0.6
+            });
+
+            // Product Spotlight Tilt Effect
+            const card = document.getElementById('tilt-card');
+            if (card) {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+                });
+            }
+
+            // Product Spotlight Carousel Logic
+            const spotlightSlides = document.querySelectorAll('.spotlight-slide');
+            const spotlightDots = document.querySelectorAll('.dot');
+            let currentSpotlightIndex = 0;
+            let spotlightInterval;
+
+            window.goToSpotlightSlide = function (index) {
+                if (spotlightSlides.length === 0) return;
+
+                // Reset index if out of bounds
+                if (index < 0) index = spotlightSlides.length - 1;
+                if (index >= spotlightSlides.length) index = 0;
+
+                // Clear active states
+                spotlightSlides.forEach(s => s.classList.remove('active'));
+                spotlightDots.forEach(d => d.classList.remove('active'));
+
+                // Set new active states
+                currentSpotlightIndex = index;
+                spotlightSlides[currentSpotlightIndex].classList.add('active');
+                if (spotlightDots[currentSpotlightIndex]) {
+                    spotlightDots[currentSpotlightIndex].classList.add('active');
+                }
+            };
+
+            function startSpotlightTimer() {
+                stopSpotlightTimer();
+                spotlightInterval = setInterval(() => {
+                    let nextIndex = (currentSpotlightIndex + 1) % spotlightSlides.length;
+                    goToSpotlightSlide(nextIndex);
+                }, 4000);
+            }
+
+            function stopSpotlightTimer() {
+                if (spotlightInterval) clearInterval(spotlightInterval);
+            }
+
+            if (spotlightSlides.length > 0) {
+                startSpotlightTimer();
+
+                // Pause on hover
+                const cardElement = document.getElementById('tilt-card');
+                if (cardElement) {
+                    cardElement.addEventListener('mouseenter', stopSpotlightTimer);
+                    cardElement.addEventListener('mouseleave', startSpotlightTimer);
+                }
+            }
+
+            steps.forEach(step => storyObserver.observe(step));
         });
     </script>
 </body>
