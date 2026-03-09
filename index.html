@@ -206,9 +206,8 @@
             <!-- Right: Sticky Map & Visuals -->
             <div class="story-visuals">
                 <div id="map-canvas"></div>
-                <div class="media-overlay">
-                    <img src="assets/images/oman_business.png" id="step-media" alt="Story Media">
-                    <div class="media-caption">Exploring our Journey</div>
+                <div class="media-overlay visible">
+                    <img src="assets/images/logo.png" id="static-logo" alt="Al-Rowaad Logo">
                 </div>
             </div>
         </div>
@@ -619,12 +618,14 @@
                             fillOpacity: 0.8
                         }).addTo(map).fadeOut = true;
 
-                        // Update Media
+                        // Update Media (Removed for static logo)
+                        /*
                         mediaOverlay.classList.remove('visible');
                         setTimeout(() => {
                             stepMedia.src = media;
                             mediaOverlay.classList.add('visible');
                         }, 300);
+                        */
                     }
                 });
             }, {
